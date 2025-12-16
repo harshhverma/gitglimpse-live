@@ -1,0 +1,123 @@
+[33mcommit 0f627439af6f6001e6c7621b5523f52d6d67961c[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: Harsh Verma <cse22_harshverma@ggct.co.in>
+Date:   Wed Dec 17 03:25:35 2025 +0530
+
+    Remove secrets and secure environment variables
+
+ backend/.env                   |  3 [31m---[m
+ backend/serviceAccountKey.json | 13 [31m-------------[m
+ 2 files changed, 16 deletions(-)
+
+[33mcommit 729cb96f901202f60489dda0cbb934a3a33d3cc1[m
+Author: Harsh Verma <cse22_harshverma@ggct.co.in>
+Date:   Wed Dec 17 03:18:32 2025 +0530
+
+    GitGlimpse: initial full-stack version
+
+ .vscode/settings.json                              |      3 [32m+[m
+ README.md                                          |    161 [32m+[m
+ backend/.env                                       |      2 [32m+[m[31m-[m
+ backend/index.js                                   |    865 [32m+[m[31m-[m
+ backend/package.json                               |      2 [32m+[m
+ frontend/.env                                      |      1 [32m+[m
+ frontend/index.html                                |     13 [32m+[m
+ frontend/node_modules/.bin/autoprefixer            |     16 [32m+[m
+ frontend/node_modules/.bin/autoprefixer.cmd        |     17 [32m+[m
+ frontend/node_modules/.bin/autoprefixer.ps1        |     28 [32m+[m
+ .../node_modules/.bin/baseline-browser-mapping     |     16 [32m+[m
+ .../node_modules/.bin/baseline-browser-mapping.cmd |     17 [32m+[m
+ .../node_modules/.bin/baseline-browser-mapping.ps1 |     28 [32m+[m
+ frontend/node_modules/.bin/browserslist            |     16 [32m+[m
+ frontend/node_modules/.bin/browserslist.cmd        |     17 [32m+[m
+ frontend/node_modules/.bin/browserslist.ps1        |     28 [32m+[m
+ frontend/node_modules/.bin/cssesc                  |     16 [32m+[m
+ frontend/node_modules/.bin/cssesc.cmd              |     17 [32m+[m
+ frontend/node_modules/.bin/cssesc.ps1              |     28 [32m+[m
+ frontend/node_modules/.bin/esbuild                 |     16 [32m+[m
+ frontend/node_modules/.bin/esbuild.cmd             |     17 [32m+[m
+ frontend/node_modules/.bin/esbuild.ps1             |     28 [32m+[m
+ frontend/node_modules/.bin/glob                    |     16 [32m+[m
+ frontend/node_modules/.bin/glob.cmd                |     17 [32m+[m
+ frontend/node_modules/.bin/glob.ps1                |     28 [32m+[m
+ frontend/node_modules/.bin/jiti                    |     16 [32m+[m
+ frontend/node_modules/.bin/jiti.cmd                |     17 [32m+[m
+ frontend/node_modules/.bin/jiti.ps1                |     28 [32m+[m
+ frontend/node_modules/.bin/loose-envify            |     16 [32m+[m
+ frontend/node_modules/.bin/loose-envify.cmd        |     17 [32m+[m
+ frontend/node_modules/.bin/loose-envify.ps1        |     28 [32m+[m
+ frontend/node_modules/.bin/nanoid                  |     16 [32m+[m
+ frontend/node_modules/.bin/nanoid.cmd              |     17 [32m+[m
+ frontend/node_modules/.bin/nanoid.ps1              |     28 [32m+[m
+ frontend/node_modules/.bin/node-which              |     16 [32m+[m
+ frontend/node_modules/.bin/node-which.cmd          |     17 [32m+[m
+ frontend/node_modules/.bin/node-which.ps1          |     28 [32m+[m
+ frontend/node_modules/.bin/resolve                 |     16 [32m+[m
+ frontend/node_modules/.bin/resolve.cmd             |     17 [32m+[m
+ frontend/node_modules/.bin/resolve.ps1             |     28 [32m+[m
+ frontend/node_modules/.bin/rollup                  |     16 [32m+[m
+ frontend/node_modules/.bin/rollup.cmd              |     17 [32m+[m
+ frontend/node_modules/.bin/rollup.ps1              |     28 [32m+[m
+ frontend/node_modules/.bin/sucrase                 |     16 [32m+[m
+ frontend/node_modules/.bin/sucrase-node            |     16 [32m+[m
+ frontend/node_modules/.bin/sucrase-node.cmd        |     17 [32m+[m
+ frontend/node_modules/.bin/sucrase-node.ps1        |     28 [32m+[m
+ frontend/node_modules/.bin/sucrase.cmd             |     17 [32m+[m
+ frontend/node_modules/.bin/sucrase.ps1             |     28 [32m+[m
+ frontend/node_modules/.bin/tailwind                |     16 [32m+[m
+ frontend/node_modules/.bin/tailwind.cmd            |     17 [32m+[m
+ frontend/node_modules/.bin/tailwind.ps1            |     28 [32m+[m
+ frontend/node_modules/.bin/tailwindcss             |     16 [32m+[m
+ frontend/node_modules/.bin/tailwindcss.cmd         |     17 [32m+[m
+ frontend/node_modules/.bin/tailwindcss.ps1         |     28 [32m+[m
+ frontend/node_modules/.bin/tsc                     |     16 [32m+[m
+ frontend/node_modules/.bin/tsc.cmd                 |     17 [32m+[m
+ frontend/node_modules/.bin/tsc.ps1                 |     28 [32m+[m
+ frontend/node_modules/.bin/tsserver                |     16 [32m+[m
+ frontend/node_modules/.bin/tsserver.cmd            |     17 [32m+[m
+ frontend/node_modules/.bin/tsserver.ps1            |     28 [32m+[m
+ frontend/node_modules/.bin/update-browserslist-db  |     16 [32m+[m
+ .../node_modules/.bin/update-browserslist-db.cmd   |     17 [32m+[m
+ .../node_modules/.bin/update-browserslist-db.ps1   |     28 [32m+[m
+ frontend/node_modules/.bin/vite                    |     16 [32m+[m
+ frontend/node_modules/.bin/vite.cmd                |     17 [32m+[m
+ frontend/node_modules/.bin/vite.ps1                |     28 [32m+[m
+ frontend/node_modules/.package-lock.json           |   2552 [32m+[m
+ frontend/node_modules/.vite/deps/_metadata.json    |     49 [32m+[m
+ frontend/node_modules/.vite/deps/axios.js          |   2629 [32m+[m
+ frontend/node_modules/.vite/deps/axios.js.map      |      7 [32m+[m
+ frontend/node_modules/.vite/deps/chunk-G3PMV62Z.js |     36 [32m+[m
+ .../node_modules/.vite/deps/chunk-G3PMV62Z.js.map  |      7 [32m+[m
+ frontend/node_modules/.vite/deps/chunk-HKXRFMQU.js |  21585 [32m++[m
+ .../node_modules/.vite/deps/chunk-HKXRFMQU.js.map  |      7 [32m+[m
+ frontend/node_modules/.vite/deps/chunk-WHMHD7EJ.js |   1905 [32m+[m
+ .../node_modules/.vite/deps/chunk-WHMHD7EJ.js.map  |      7 [32m+[m
+ frontend/node_modules/.vite/deps/package.json      |      3 [32m+[m
+ .../node_modules/.vite/deps/react-dom_client.js    |     39 [32m+[m
+ .../.vite/deps/react-dom_client.js.map             |      7 [32m+[m
+ frontend/node_modules/.vite/deps/react.js          |      6 [32m+[m
+ frontend/node_modules/.vite/deps/react.js.map      |      7 [32m+[m
+ .../.vite/deps/react_jsx-dev-runtime.js            |    898 [32m+[m
+ .../.vite/deps/react_jsx-dev-runtime.js.map        |      7 [32m+[m
+ frontend/node_modules/.vite/deps/recharts.js       |  34379 [32m+++[m
+ frontend/node_modules/.vite/deps/recharts.js.map   |      7 [32m+[m
+ frontend/node_modules/@alloc/quick-lru/index.d.ts  |    128 [32m+[m
+ frontend/node_modules/@alloc/quick-lru/index.js    |    263 [32m+[m
+ frontend/node_modules/@alloc/quick-lru/license     |      9 [32m+[m
+ .../node_modules/@alloc/quick-lru/package.json     |     43 [32m+[m
+ frontend/node_modules/@alloc/quick-lru/readme.md   |    139 [32m+[m
+ frontend/node_modules/@babel/runtime/LICENSE       |     22 [32m+[m
+ frontend/node_modules/@babel/runtime/README.md     |     19 [32m+[m
+ .../@babel/runtime/helpers/AwaitValue.js           |      4 [32m+[m
+ .../@babel/runtime/helpers/OverloadYield.js        |      4 [32m+[m
+ .../runtime/helpers/applyDecoratedDescriptor.js    |      9 [32m+[m
+ .../@babel/runtime/helpers/applyDecs.js            |    236 [32m+[m
+ .../@babel/runtime/helpers/applyDecs2203.js        |    184 [32m+[m
+ .../@babel/runtime/helpers/applyDecs2203R.js       |    191 [32m+[m
+ .../@babel/runtime/helpers/applyDecs2301.js        |    222 [32m+[m
+ .../@babel/runtime/helpers/applyDecs2305.js        |    133 [32m+[m
+ .../@babel/runtime/helpers/applyDecs2311.js        |    124 [32m+[m
+ .../@babel/runtime/helpers/arrayLikeToArray.js     |      6 [32m+[m
+ .../@babel/runtime/helpers/arrayWithHoles.js       |      4 [32m+[m
+ .../@babel/runtime/helpers/arrayWithoutHoles.js    |      5 [32m+[m
+ .../@babel/runtime/helpers/assertClassBrand.js     |      5 [32m+[m
+ .../runtime/helpers/assertThisInitialized.js       | 
